@@ -7,19 +7,23 @@ const Header = (props) =>(
   </div>
 )
 
-const Statistics = ({name, type}) => (
+const StatisticLine = ({name, type}) => (
   <div>
-    <p> {name} {type}</p>
+    <table>
+    <tr>
+      <td>{name}</td>
+      <td>{type}</td>  
+    </tr>
+    </table>
   </div>
 )
 
-const Button = (props) => {
-  return(
-    <button onClick={props.handleClick}>
-      {props.text}
+const Button = ({handleClick, text}) => (
+    <button onClick={handleClick}>
+      {text}
     </button>
   )
-}
+
 
 
 
@@ -66,12 +70,12 @@ const App = () => {
     <Button handleClick={handleBadClick} text= "bad"/>
       
     <Header text="Statistics"/>
-    <Statistics name="good" type={clicks.good}/>
-    <Statistics name="neutral" type={clicks.neutral}/>
-    <Statistics name="bad" type={clicks.bad}/>  
-    <Statistics name="all" type={clicks.all}/>
-    <Statistics name="average" type={average}/>
-    <Statistics name="positive" type={positive}/>
+    <StatisticLine name="good" type={clicks.good}/>
+    <StatisticLine name="neutral" type={clicks.neutral}/>
+    <StatisticLine name="bad" type={clicks.bad}/>  
+    <StatisticLine name="all" type={clicks.all}/>
+    <StatisticLine name="average" type={average}/>
+    <StatisticLine name="positive" type={positive}/>
     
     </>
   )
